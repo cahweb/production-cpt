@@ -1,4 +1,3 @@
-# Common - Template
+# Common - Production Custom Post Type
 ## v0.1.0
-
-Template for all the common CPT plugins I have to make.
+Wordpress Plugin for Production Custom Post Type to be used on applicable UCF College of Arts and Humanities websites.

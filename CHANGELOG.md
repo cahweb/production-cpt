@@ -4,9 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 
 ## [Unreleased]
-### Removed
-- required.php markup removed
-- Changed function namespaces so they're all at the beginning of the function instead of in random places
+
+## [0.1.1] - 2016/10/03
+### Changed
+- Renamed all files cloned from temp repo
 
 ## [0.1.0] - 2016/09/06
 ### Notes

@@ -15,42 +15,42 @@
 // error_reporting(E_ALL);
 
 // Load our CSS
-function temp_load_plugin_css() {
-    wp_enqueue_style( 'temp-plugin-style', plugin_dir_url(__FILE__) . 'css/style.css');
+function production_load_plugin_css() {
+    wp_enqueue_style( 'production-plugin-style', plugin_dir_url(__FILE__) . 'css/style.css');
 }
-add_action( 'admin_enqueue_scripts', 'temp_load_plugin_css' );
+add_action( 'admin_enqueue_scripts', 'production_load_plugin_css' );
 
 // Add create function to init
-add_action('init', 'temp_create_type');
+add_action('init', 'production_create_type');
 
 // Create the custom post type and register it
-function temp_create_type() {
+function production_create_type() {
 	$args = array(
-	      'label' => 'temp',
+	      'label' => 'Productions',
 	        'public' => true,
 	        'show_ui' => true,
 	        'capability_type' => 'post',
 	        'hierarchical' => false,
-	        'rewrite' => array('slug' => 'temp'),
-			'menu_icon'  => 'dashicons-groups',
+	        'rewrite' => array('slug' => 'production'),
+			'menu_icon'  => 'dashicons-tickets-alt',
 	        'query_var' => true,
 	        'supports' => array(
 	            'title',
 	            'thumbnail')
 	    );
-	register_post_type( 'temp' , $args );
+	register_post_type( 'production' , $args );
 }
 
-add_action("admin_init", "temp_init");
-add_action('save_post', 'temp_save');
+add_action("admin_init", "production_init");
+add_action('save_post', 'production_save');
 
 // Add the meta boxes to our CPT page
-function temp_init() {
-	add_meta_box("temp-required-meta", "Required Information", "temp_meta_required", "temp", "normal", "high");
+function production_init() {
+	add_meta_box("production-required-meta", "Required Information", "production_meta_required", "production", "normal", "high");
 }
 
 // Meta box functions
-function temp_meta_required() {
+function production_meta_required() {
 	global $post; // Get global WP post var
     $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
 
@@ -59,10 +59,10 @@ function temp_meta_required() {
 }
 
 // Save our variables
-function temp_save() {
+function production_save() {
 	global $post;
 
-	update_post_meta($post->ID, "temp", $_POST["temp"]);
+	update_post_meta($post->ID, "production", $_POST["production"]);
 }
 
 // Settings array. This is so I can retrieve predefined wp_editor() settings to keep the markup clean
