@@ -27,10 +27,10 @@
 	        cursor:pointer;
 	    }
 	</style>
-		<input  style="margin-top:10px" type="text" name="date[]" id="d<?=$i?>" value="<?=$dates[$i]; ?>" placeholder="MM/DD/YYYY"/>
-		<input style="margin-top:10px" type="text" name="start[]" id="s<?=$i?>" value="<?=$starts[$i]; ?>" placeholder="HH:MM(am/pm)"/>
-		<input style="margin-top:10px" type="text" name="end[]"  id="e<?=$i?>" value="<?=$ends[$i]; ?>" placeholder="HH:MM(am/pm)"/>
-		<input style="margin-top:10px" type="text" name="ticket[]" id="t<?=$i?>" value="<?=$indiv_ticket_url[$i]; ?>" placeholder="URL" />
+		<input class="event_date" style="margin-top:10px" type="text" name="date[]" size="15" id="d<?=$i?>" value="<?=$dates[$i]; ?>" placeholder="MM/DD/YYYY"/>
+		<input class="event_time" style="margin-top:10px" type="text" name="start[]" size="15" id="s<?=$i?>" value="<?=$starts[$i]; ?>" placeholder="HH:MM(am/pm)"/>
+		<input class="event_time" style="margin-top:10px" type="text" name="end[]" size="15"  id="e<?=$i?>" value="<?=$ends[$i]; ?>" placeholder="HH:MM(am/pm)"/>
+		<input class="ticket_url" style="margin-top:10px" type="text" name="ticket[]" size="30" id="t<?=$i?>" value="<?=$indiv_ticket_url[$i]; ?>" placeholder="URL" />
 	
 	<?php } ?>
 </div>
