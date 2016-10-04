@@ -2,8 +2,8 @@
 
 /*
  *
- * Plugin Name: Common - 
- * Description: 
+ * Plugin Name: Common - Production CPT
+ * Description: Wordpress Plugin for Production Custom Post Type to be used on applicable UCF College of Arts and Humanities websites
  * Author: Austin Tindle
  *
  */
@@ -27,6 +27,7 @@ add_action('init', 'production_create_type');
 function production_create_type() {
 	$args = array(
 	      'label' => 'Productions',
+	      	'taxonomies' => array('category'),
 	        'public' => true,
 	        'show_ui' => true,
 	        'capability_type' => 'post',
@@ -46,23 +47,79 @@ add_action('save_post', 'production_save');
 
 // Add the meta boxes to our CPT page
 function production_init() {
-	add_meta_box("production-required-meta", "Required Information", "production_meta_required", "production", "normal", "high");
+	add_meta_box("production-options-meta", "Options", "production_meta_options", "production", "normal", "high");
+	add_meta_box("production-performances-meta", "Performances", "production_meta_performances", "production", "normal", "low");
+	add_meta_box("production-synopsis-meta", "Synopsis", "production_meta_synopsis", "production", "normal", "low");
+	add_meta_box("production-press-meta", "Press", "production_meta_press", "production", "normal", "low");
+	add_meta_box("production-reading-meta", "Further Reading", "production_meta_reading", "production", "normal", "low");
+	add_meta_box("production-program-meta", "Program", "production_meta_program", "production", "normal", "low");
 }
 
 // Meta box functions
-function production_meta_required() {
+function production_meta_options() {
 	global $post; // Get global WP post var
     $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
 
     // Form markup 
-    include_once('views/required.php');
+    include_once('views/options.php');
+}
+
+function production_meta_performances() {
+	global $post; // Get global WP post var
+    $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
+
+    // Form markup 
+    include_once('views/performances.php');
+}
+
+function production_meta_synopsis() {
+	global $post; // Get global WP post var
+	global $settings;
+    $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
+
+    wp_editor($custom['synopsis'][0], 'synopsis', $settings['md']);
+}
+
+function production_meta_press() {
+	global $post; // Get global WP post var
+	global $settings;
+    $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
+
+    wp_editor($custom['press'][0], 'press', $settings['md']);
+}
+
+function production_meta_reading() {
+	global $post; // Get global WP post var
+	global $settings;
+    $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
+
+    wp_editor($custom['reading'][0], 'reading', $settings['md']);
+}
+
+function production_meta_program() {
+	global $post; // Get global WP post var
+	global $settings;
+    $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
+
+    wp_editor($custom['program'][0], 'program', $settings['md']);
 }
 
 // Save our variables
 function production_save() {
 	global $post;
 
-	update_post_meta($post->ID, "production", $_POST["production"]);
+	update_post_meta($post->ID, "subtitle", $_POST["subtitle"]);
+	update_post_meta($post->ID, "blurb", $_POST["blurb"]);
+	update_post_meta($post->ID, "venue", $_POST["venue"]);
+	update_post_meta($post->ID, "venue_url", $_POST["venue_url"]);
+	update_post_meta($post->ID, "start_date", $_POST["start_date"]);
+	update_post_meta($post->ID, "end_date", $_POST["end_date"]);
+	update_post_meta($post->ID, "synopsis", $_POST["synopsis"]);
+	update_post_meta($post->ID, "press", $_POST["press"]);
+	update_post_meta($post->ID, "reading", $_POST["reading"]);
+	update_post_meta($post->ID, "program", $_POST["program"]);
+
+
 }
 
 // Settings array. This is so I can retrieve predefined wp_editor() settings to keep the markup clean

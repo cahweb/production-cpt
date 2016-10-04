@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 
 ## [Unreleased]
+### Changed
+- Performances meta box is incomplete and not functional
+
+## [0.1.2] - 2016/10/04
+### Changed
+- Added all meta boxes and stylesheets
 
 ## [0.1.1] - 2016/10/03
 ### Changed
