@@ -1,7 +1,7 @@
 <div class="inner-meta">
 
-	<label>Ticket URL (for all performances)</label>
-	<input type="text" name="ticket_url" value="<?php echo $custom['ticket_url'][0]; ?>" >
+	<label>Ticket URL (for all performances)</label><br>
+	<input type="url" name="ticket_url" value="<?php echo $custom['ticket_url'][0]; ?>" >
 	<br>
 
 	<p>
@@ -10,27 +10,27 @@
 	</p>
 
 	<!-- Father forgive me for my sins (don't judge me, this is incomplete and not mine)-->
+	<br>
+	<br>
 
-	DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; START TIME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END TIME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ticket URL (for this performance)<br> <?php
-    global $post;
-    $ticket_url = $custom["ticket_url"][0];
-    $indiv_ticket_url = $custom["indiv_ticket_url"][0];
-    $custom = get_post_custom($post->ID);
-    $subtitle = $custom["subtitle"][0];
-    $dates = explode("&", $custom["date"][0]);
-    $starts = explode("&", $custom["start"][0]);
-    $ends = explode("&", $custom["end"][0]);
-    for($i = 0; $i < sizeof($dates); $i++) {
-	?>
-	<style>
-	    a:hover {
-	        cursor:pointer;
-	    }
-	</style>
-		<input class="event_date" style="margin-top:10px" type="text" name="date[]" size="15" id="d<?=$i?>" value="<?=$dates[$i]; ?>" placeholder="MM/DD/YYYY"/>
-		<input class="event_time" style="margin-top:10px" type="text" name="start[]" size="15" id="s<?=$i?>" value="<?=$starts[$i]; ?>" placeholder="HH:MM(am/pm)"/>
-		<input class="event_time" style="margin-top:10px" type="text" name="end[]" size="15"  id="e<?=$i?>" value="<?=$ends[$i]; ?>" placeholder="HH:MM(am/pm)"/>
-		<input class="ticket_url" style="margin-top:10px" type="text" name="ticket[]" size="30" id="t<?=$i?>" value="<?=$indiv_ticket_url[$i]; ?>" placeholder="URL" />
-	
-	<?php } ?>
+	<p class="first">DATE</p><p>START TIME</p><p>END TIME</p><p>Ticket URL (for this performance)</p><br>
+
+	<input class="event_date" style="margin-top:10px" type="date" name="event_date" size="15" id="d" value="<?php echo $custom['event_date'][0]; ?>"/>
+	<input class="event_time" style="margin-top:10px" type="time" name="event_start" size="15" id="s" value="<?php echo $custom["event_start"][0]?>"/>
+	<input class="event_time" style="margin-top:10px" type="time" name="event_end" size="15"  id="e" value="<?php echo $custom["event_end"][0]?>"/>
+	<input class="ticket_url" style="margin-top:10px" type="url" name="event_url" size="30" id="t" value="<?php echo $custom["event_url"][0]?>" placeholder="URL" />
+
+	<?php
+	    // global $post;
+	    // $ticket_url = $custom["ticket_url"][0];
+	    // $indiv_ticket_url = $custom["indiv_ticket_url"][0];
+	    // $custom = get_post_custom($post->ID);
+	    // $subtitle = $custom["subtitle"][0];
+	    // $dates = explode("&", $custom["date"][0]);
+	    // $starts = explode("&", $custom["start"][0]);
+	    // $ends = explode("&", $custom["end"][0]);
+    ?>
+    
+
+
 </div>

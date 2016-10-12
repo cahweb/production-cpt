@@ -2,10 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/)
 
-
 ## [Unreleased]
 ### Changed
-- Performances meta box is incomplete and not functional
+- Performance meta box allows for more than one date (unfinished)
+
+## [0.1.3]
+### Changed
+- All meta box inputs have correct names corresponding to old cpt input names
+- Performances meta box is functional but only allows for 1 date
 
 ## [0.1.2] - 2016/10/04
 ### Changed

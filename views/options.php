@@ -13,15 +13,15 @@
 	<br>
 
 	<label>Venue URL</label>
-	<input type="text" name="venue" value="<?php echo $custom['venue_url'][0]; ?>" >
+	<input type="text" name="venue_url" value="<?php echo $custom['venue_url'][0]; ?>" >
 	<br>
 
 	<label>Start Date</label>
-	<input class="prod_date" type="text" name="start_date" value="<?php echo $custom['start_date'][0]; ?>" size="15" placeholder="MM/DD/YYYY"/>
+	<input class="prod_date" type="date" name="start_date" value="<?php echo $custom['start_date'][0]; ?>"/>
 	<br>
 
 	<label>End Date</label>
-	<input class="prod_date" type="text" name="start_date" value="<?php echo $custom['start_date'][0]; ?>" size="15" placeholder="MM/DD/YYYY"/>
+	<input class="prod_date" type="date" name="end_date" value="<?php echo $custom['end_date'][0]; ?>"/>
 	<br>
 
 </div>

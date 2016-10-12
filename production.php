@@ -114,10 +114,15 @@ function production_save() {
 	update_post_meta($post->ID, "venue_url", $_POST["venue_url"]);
 	update_post_meta($post->ID, "start_date", $_POST["start_date"]);
 	update_post_meta($post->ID, "end_date", $_POST["end_date"]);
-	update_post_meta($post->ID, "synopsis", $_POST["synopsis"]);
+	update_post_meta($post->ID, "description", $_POST["description"]);
 	update_post_meta($post->ID, "press", $_POST["press"]);
-	update_post_meta($post->ID, "reading", $_POST["reading"]);
-	update_post_meta($post->ID, "program", $_POST["program"]);
+	update_post_meta($post->ID, "furtherread", $_POST["furtherread"]);
+	update_post_meta($post->ID, "castcrew", $_POST["castcrew"]);
+	update_post_meta($post->ID, "ticket_url", $_POST["ticket_url"]);
+	update_post_meta($post->ID, "event_date", $_POST["event_date"]);
+	update_post_meta($post->ID, "event_start", $_POST["event_start"]);
+	update_post_meta($post->ID, "event_end", $_POST["event_end"]);
+	update_post_meta($post->ID, "event_url", $_POST["event_url"]);
 
 
 }
