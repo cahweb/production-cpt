@@ -77,7 +77,7 @@ function production_meta_synopsis() {
 	global $settings;
     $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
 
-    wp_editor($custom['synopsis'][0], 'synopsis', $settings['md']);
+    wp_editor($custom['description'][0], 'description', $settings['md']);
 }
 
 function production_meta_press() {
@@ -93,7 +93,7 @@ function production_meta_reading() {
 	global $settings;
     $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
 
-    wp_editor($custom['reading'][0], 'reading', $settings['md']);
+    wp_editor($custom['furtherread'][0], 'furtherread', $settings['md']);
 }
 
 function production_meta_program() {
@@ -101,7 +101,7 @@ function production_meta_program() {
 	global $settings;
     $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
 
-    wp_editor($custom['program'][0], 'program', $settings['md']);
+    wp_editor($custom['castcrew'][0], 'castcrew', $settings['md']);
 }
 
 // Save our variables
