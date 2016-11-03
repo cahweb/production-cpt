@@ -1,3 +1,5 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <?php
 
 /*
@@ -107,6 +109,7 @@ function production_meta_program() {
 // Save our variables
 function production_save() {
 	global $post;
+	$i = 0;
 
 	update_post_meta($post->ID, "subtitle", $_POST["subtitle"]);
 	update_post_meta($post->ID, "blurb", $_POST["blurb"]);
@@ -119,10 +122,15 @@ function production_save() {
 	update_post_meta($post->ID, "furtherread", $_POST["furtherread"]);
 	update_post_meta($post->ID, "castcrew", $_POST["castcrew"]);
 	update_post_meta($post->ID, "ticket_url", $_POST["ticket_url"]);
-	update_post_meta($post->ID, "event_date", $_POST["event_date"]);
-	update_post_meta($post->ID, "event_start", $_POST["event_start"]);
-	update_post_meta($post->ID, "event_end", $_POST["event_end"]);
-	update_post_meta($post->ID, "event_url", $_POST["event_url"]);
+
+	update_post_meta($post->ID, "num_dates", $_POST["num_dates"]);
+
+	for($i = 0; $i < $_POST["num_dates"]; $i++) {
+		update_post_meta($post->ID, "event_date_".$i, $_POST["event_date_".$i]);
+		update_post_meta($post->ID, "event_start_".$i, $_POST["event_start_".$i]);
+		update_post_meta($post->ID, "event_end_".$i, $_POST["event_end_".$i]);
+		update_post_meta($post->ID, "event_url_".$i, $_POST["event_url_".$i]);
+	}
 
 
 }

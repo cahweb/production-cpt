@@ -4,7 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## [Unreleased]
 ### Changed
-- Performance meta box allows for more than one date (unfinished)
+
+## [0.1.4]
+### Changed
+- Performance meta box allows for more than one date
 
 ## [0.1.3]
 ### Changed
