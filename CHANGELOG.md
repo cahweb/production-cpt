@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 ## [Unreleased]
 ### Changed
 
+## [0.1.5]
+### Fixed
+- In previous version, the plugin loaded jQuery from google which caused errors. Now uses Wordpress's jQuery
+
 ## [0.1.4]
 ### Changed
 - Performance meta box allows for more than one date

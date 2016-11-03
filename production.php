@@ -1,12 +1,9 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
 <?php
-
 /*
  *
  * Plugin Name: Common - Production CPT
  * Description: Wordpress Plugin for Production Custom Post Type to be used on applicable UCF College of Arts and Humanities websites
- * Author: Austin Tindle
+ * Author: Austin Tindle & Alessandro Vecchi
  *
  */
 

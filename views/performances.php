@@ -39,57 +39,57 @@
 
 	<script>
 		// save the number of dates to be utilized in javascript
-		var num_dates = $('#num_dates').val();
-		$(document).ready(function(){
+		var num_dates = jQuery('#num_dates').val();
+		jQuery(document).ready(function(){
 
 			// this is the action event that is called when the date_button is pressed
-		    $("#date_button").click(function(){
-		    	$("#events").append("<br><input class=\"event_date\" style=\"margin-top: 10px\" type=\"date\" name=\"event_date_"+num_dates+"\"/>");
-		    	$("#events").append("<input class=\"event_time\" style=\"margin-top:10px\" type=\"time\" name=\"event_start_"+num_dates+"\"/>");
-		    	$("#events").append("<input class=\"event_time\" style=\"margin-top:10px\" type=\"time\" name=\"event_end_"+num_dates+"\"/>");
-		    	$("#events").append("<input class=\"ticket_url\" style=\"margin-top:10px\" type=\"url\" name=\"event_url_"+num_dates+"\" placeholder=\"URL\"/>");
-		    	$("#events").append("<input type=\"button\" class=\"remove_button\" name=\"remove_"+num_dates+"\" value=\"Remove\"/>");
+		    jQuery("#date_button").click(function(){
+		    	jQuery("#events").append("<br><input class=\"event_date\" style=\"margin-top: 10px\" type=\"date\" name=\"event_date_"+num_dates+"\"/>");
+		    	jQuery("#events").append("<input class=\"event_time\" style=\"margin-top:10px\" type=\"time\" name=\"event_start_"+num_dates+"\"/>");
+		    	jQuery("#events").append("<input class=\"event_time\" style=\"margin-top:10px\" type=\"time\" name=\"event_end_"+num_dates+"\"/>");
+		    	jQuery("#events").append("<input class=\"ticket_url\" style=\"margin-top:10px\" type=\"url\" name=\"event_url_"+num_dates+"\" placeholder=\"URL\"/>");
+		    	jQuery("#events").append("<input type=\"button\" class=\"remove_button\" name=\"remove_"+num_dates+"\" value=\"Remove\"/>");
 		    	num_dates++;
-		    	$("#num_dates").val(num_dates);
+		    	jQuery("#num_dates").val(num_dates);
 		    });
 		});
 
 		// this is where the remove buttons are handled
-		$(document).on('click', '.remove_button', function(){
+		jQuery(document).on('click', '.remove_button', function(){
 			// checks to see if the remove button clicked is the final date in the events div.
 			// if it is, then it will simply delete it from the DOM and decrement the num_dates variable
 			// which is then stored in the num_dates input field
-	    	if($(this).attr("name") == ("remove_"+(num_dates-1))){
-	    		$("[name='event_date_"+(num_dates-1)+"']").remove();
-	    		$("[name='event_start_"+(num_dates-1)+"']").remove();
-	    		$("[name='event_end_"+(num_dates-1)+"']").remove();
-	    		$("[name='event_url_"+(num_dates-1)+"']").remove();
-	    		$(this).remove();
+	    	if(jQuery(this).attr("name") == ("remove_"+(num_dates-1))){
+	    		jQuery("[name='event_date_"+(num_dates-1)+"']").remove();
+	    		jQuery("[name='event_start_"+(num_dates-1)+"']").remove();
+	    		jQuery("[name='event_end_"+(num_dates-1)+"']").remove();
+	    		jQuery("[name='event_url_"+(num_dates-1)+"']").remove();
+	    		jQuery(this).remove();
 	    		num_dates--;
-	    		$("#num_dates").val(num_dates);
+	    		jQuery("#num_dates").val(num_dates);
 	    	}
 	    	// this is when the remove button clicked is not the final button.
 	    	// when this occurs we must first shift each value down an index and then which allows us
 	    	// to delete the final element without losing any data
 	    	else {
-	    		var current_index = parseInt(($(this).attr("name")).slice(-1));
+	    		var current_index = parseInt((jQuery(this).attr("name")).slice(-1));
 	    		
 	    		// shift each element down an index
 	    		for(var i = current_index; i < num_dates; i++){
-	    			$("[name='event_date_"+i+"']").attr("value", $("[name='event_date_"+(i+1)+"']").attr("value"));
-	    			$("[name='event_start_"+i+"']").attr("value", $("[name='event_start_"+(i+1)+"']").attr("value"));
-	    			$("[name='event_end_"+i+"']").attr("value", $("[name='event_end_"+(i+1)+"']").attr("value"));
-	    			$("[name='event_url_"+i+"']").attr("value", $("[name='event_url_"+(i+1)+"']").attr("value"));
+	    			jQuery("[name='event_date_"+i+"']").attr("value", jQuery("[name='event_date_"+(i+1)+"']").attr("value"));
+	    			jQuery("[name='event_start_"+i+"']").attr("value", jQuery("[name='event_start_"+(i+1)+"']").attr("value"));
+	    			jQuery("[name='event_end_"+i+"']").attr("value", jQuery("[name='event_end_"+(i+1)+"']").attr("value"));
+	    			jQuery("[name='event_url_"+i+"']").attr("value", jQuery("[name='event_url_"+(i+1)+"']").attr("value"));
 	    		}
 
 	    		// remove final input line
-	    		$("[name='event_date_"+(num_dates-1)+"']").remove();
-	    		$("[name='event_start_"+(num_dates-1)+"']").remove();
-	    		$("[name='event_end_"+(num_dates-1)+"']").remove();
-	    		$("[name='event_url_"+(num_dates-1)+"']").remove();
-	    		$("[name='remove_"+(num_dates-1)+"']").remove();
+	    		jQuery("[name='event_date_"+(num_dates-1)+"']").remove();
+	    		jQuery("[name='event_start_"+(num_dates-1)+"']").remove();
+	    		jQuery("[name='event_end_"+(num_dates-1)+"']").remove();
+	    		jQuery("[name='event_url_"+(num_dates-1)+"']").remove();
+	    		jQuery("[name='remove_"+(num_dates-1)+"']").remove();
 	    		num_dates--;
-	    		$("#num_dates").val(num_dates);
+	    		jQuery("#num_dates").val(num_dates);
 
 	    	}
 		});
